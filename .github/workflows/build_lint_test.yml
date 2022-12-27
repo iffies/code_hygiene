@@ -1,5 +1,11 @@
 name: Build, lint and test
-on: [push]
+on:
+  push:
+    inputs:
+      node-version:
+        required: false
+        type: string
+        default: 16.19.0
 env:
   MIX_ENV: test
 jobs:

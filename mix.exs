@@ -32,25 +32,27 @@ defmodule CodeHygiene.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:ecto_sql, "~> 3.6"},
+      {:finch, "~> 0.13"},
+      {:gettext, "~> 0.20"},
+      {:heroicons, "~> 0.5"},
+      {:jason, "~> 1.2"},
       {:phoenix, "~> 1.7.0-rc.0", override: true},
       {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.6"},
-      {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.0"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.18.3"},
-      {:heroicons, "~> 0.5"},
-      {:floki, ">= 0.30.0", only: :test},
-      {:phoenix_live_dashboard, "~> 0.7.2"},
-      {:esbuild, "~> 0.5", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.1.8", runtime: Mix.env() == :dev},
+      {:plug_cowboy, "~> 2.5"},
+      {:postgrex, ">= 0.0.0"},
       {:swoosh, "~> 1.3"},
-      {:finch, "~> 0.13"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
-      {:gettext, "~> 0.20"},
-      {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      # Development only
+      {:esbuild, "~> 0.5", runtime: Mix.env() == :dev},
+      {:phoenix_live_dashboard, "~> 0.7.2"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:tailwind, "~> 0.1.8", runtime: Mix.env() == :dev},
+      # Testing only
+      {:floki, ">= 0.30.0", only: :test}
     ]
   end
 

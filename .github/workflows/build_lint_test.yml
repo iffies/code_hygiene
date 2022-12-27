@@ -1,11 +1,5 @@
 name: Build, lint and test
-on:
-  push:
-    inputs:
-      node-version:
-        required: false
-        type: string
-        default: 16.19.0
+on: [push]
 env:
   MIX_ENV: test
 jobs:
@@ -24,14 +18,14 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Elixir
         uses: erlef/setup-beam@v1
         with:
           elixir-version: '1.14.2'
           otp-version: '25.2'
       - name: Restore dependencies cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}

@@ -1,4 +1,5 @@
 defmodule CodeHygieneWeb.ErrorHTML do
+  @moduledoc false
   use CodeHygieneWeb, :html
 
   # If you want to customize your error pages,
